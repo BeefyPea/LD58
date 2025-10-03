@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Godot Cache und temporäre Dateien
 .import/
 .export/
@@ -15,3 +16,8 @@ Thumbs.db
 # Editor / IDE
 .vscode/
 .idea/
+=======
+# Godot 4+ specific ignores
+.godot/
+/android/
+>>>>>>> 492acbf39a7d1333ecb5a12f0a2366e3027fa126
