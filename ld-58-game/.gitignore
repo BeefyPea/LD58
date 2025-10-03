@@ -1,0 +1,17 @@
+# Godot Cache und temporäre Dateien
+.import/
+.export/
+.godot/
+
+# Mono (C# Projekte)
+mono/
+data_*/
+mono_crash.*
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
