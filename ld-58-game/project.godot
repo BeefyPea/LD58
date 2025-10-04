@@ -15,10 +15,19 @@ run/main_scene="uid://0s00puy5yaur"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Itemclass="*res://itemclass.gd"
+Handmanager="*res://handmanager.gd"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[global_group]
+
+player="playergroup"
 
 [input]
 
