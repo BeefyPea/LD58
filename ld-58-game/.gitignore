@@ -4,5 +4,5 @@
 
 
 # Godot editor settings
-.godot/editor/*
-.godot/uid_cache.bin
+#.godot/editor/*
+#.godot/uid_cache.bin
