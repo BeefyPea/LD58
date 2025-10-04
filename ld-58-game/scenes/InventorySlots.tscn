@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://c6cfe1xpafw1v"]
 
 [node name="InventorySlots" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = -1
+anchor_right = 0.056
+anchor_bottom = 0.09900001
+offset_right = -42.512
+offset_bottom = -41.152008
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2

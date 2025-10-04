@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bl4ynvq6x78dt"]
+[gd_scene load_steps=3 format=3 uid="uid://bl4ynvq6x78dt"]
 
 [ext_resource type="PackedScene" uid="uid://c6cfe1xpafw1v" path="res://scenes/InventorySlots.tscn" id="1_dsn3v"]
+[ext_resource type="Script" uid="uid://guivx1ok8k7y" path="res://scripts/inventory_ui.gd" id="1_ju2k0"]
 
 [node name="InventorUI" type="CanvasLayer" groups=["player"]]
+script = ExtResource("1_ju2k0")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = -1
@@ -20,6 +22,7 @@ offset_right = -0.3199997
 offset_bottom = 9.8239975
 size_flags_horizontal = 4
 size_flags_vertical = 4
+columns = 2
 
 [node name="Linkehand" parent="GridContainer" instance=ExtResource("1_dsn3v")]
 layout_mode = 2

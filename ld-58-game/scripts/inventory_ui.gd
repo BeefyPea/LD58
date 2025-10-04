@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var grid_container = $Panel/GridContainer
+@onready var grid_container = $GridContainer
  
 func _ready():
 	# Connect to the inventory's signal.
@@ -12,15 +12,15 @@ func _ready():
  
 func update_ui():
 	var slots = grid_container.get_children()
-	var inventory_items = Handmanager.items
- 
-	for i in range(slots.size()):
-		var slot = slots[i]
-		if i < inventory_items.size():
-			# If there's an item for this slot, display it.
-			var item = inventory_items[i]
-			slot.get_node("TextureRect").texture = item.texture
-			# (Add logic for label/quantity here)
-		else:
-			# Otherwise, clear the slot.
-			slot.get_node("TextureRect").texture = null
+	var inventory_items = Handmanager.Items
+	if inventory_items.size() > 0:
+		for i in range(slots.size()):
+			var slot = slots[i]
+			if i < inventory_items.size() :
+				# If there's an item for this slot, display it.
+				var item = inventory_items[i]
+				slot.get_node("TextureRect").texture = item.texture
+				# (Add logic for label/quantity here)
+			else:
+				# Otherwise, clear the slot.
+				slot.get_node("TextureRect").texture = null

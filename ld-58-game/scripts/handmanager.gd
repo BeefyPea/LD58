@@ -1,6 +1,6 @@
 extends Node
 signal update_inventory
-var Items: Array[Item] = []
+var Items: Array[Item]
 
 func addItem(item):
 	Items.append(item)
