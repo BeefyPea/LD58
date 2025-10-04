@@ -1,12 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://buxcw17gxivrw"]
+[gd_scene load_steps=22 format=3 uid="uid://buxcw17gxivrw"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://x56isvi757va" path="res://assets/playersprite.png" id="2_iywne"]
+[ext_resource type="PackedScene" uid="uid://1ng05d53hre8" path="res://scenes/parallax.tscn" id="1_p57ef"]
+[ext_resource type="Texture2D" uid="uid://x56isvi757va" path="res://assets/sprites/playersprite.png" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://bl4ynvq6x78dt" path="res://scenes/InventoryUI.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://scenes/Pickup.tscn" id="4_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://r710d4r07jsr" path="res://assets/sounds/chill_exploration.wav" id="5_iywne"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6r6c"]
-radius = 7.0
+radius = 5.25
+height = 25.25
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
 atlas = ExtResource("2_iywne")
@@ -110,37 +115,16 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
-distance = -355.0
-
 [node name="GameMain" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(93, 85)
-collision_layer = 2
-script = ExtResource("1_lbhrr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["player"]]
-position = Vector2(-1.25, -1.625)
-shape = SubResource("CapsuleShape2D_q6r6c")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(0.75, -4.6249847)
-scale = Vector2(0.98437506, 1.0859373)
-sprite_frames = SubResource("SpriteFrames_ir8iy")
-animation = &"jump"
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -26)
-zoom = Vector2(3, 3)
-
-[node name="invent" parent="Player" instance=ExtResource("3_p57ef")]
+[node name="parallax" parent="." instance=ExtResource("1_p57ef")]
+position = Vector2(341, 274)
 
 [node name="Worldfloor" type="StaticBody2D" parent="."]
-position = Vector2(497, 182)
+position = Vector2(158, 126)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Worldfloor"]
-position = Vector2(4, 76)
+position = Vector2(1, -20)
 shape = SubResource("WorldBoundaryShape2D_0hol4")
 
 [node name="pickup" parent="." instance=ExtResource("4_u5sy4")]
@@ -151,5 +135,31 @@ position = Vector2(748, 559)
 
 [node name="pickup3" parent="." instance=ExtResource("4_u5sy4")]
 position = Vector2(911, 557)
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(160, 107)
+collision_layer = 2
+script = ExtResource("1_lbhrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["player"]]
+position = Vector2(-0.25, -15.625)
+shape = SubResource("CapsuleShape2D_q6r6c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(1, -18)
+scale = Vector2(0.98437506, 1.0859373)
+sprite_frames = SubResource("SpriteFrames_ir8iy")
+animation = &"jump"
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -17)
+zoom = Vector2(2, 2)
+position_smoothing_speed = 20.0
+
+[node name="invent" parent="Player" instance=ExtResource("3_p57ef")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_iywne")
+autoplay = true
 
 [connection signal="body_entered" from="pickup" to="Player" method="_on_pickup_body_entered"]
