@@ -16,8 +16,14 @@ position = Vector2(0, -69)
 texture = ExtResource("2_clep7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -69)
+position = Vector2(-2, -72)
 shape = SubResource("RectangleShape2D_7qwl2")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(86, -46)
+target_position = Vector2(-169, 1)
+collision_mask = 2
+hit_from_inside = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

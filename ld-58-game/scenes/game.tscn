@@ -128,7 +128,8 @@ position = Vector2(1, -20)
 shape = SubResource("WorldBoundaryShape2D_0hol4")
 
 [node name="pickup" parent="." instance=ExtResource("4_u5sy4")]
-position = Vector2(602, 557)
+position = Vector2(288, 167)
+collision_mask = 3
 
 [node name="pickup2" parent="." instance=ExtResource("4_u5sy4")]
 position = Vector2(748, 559)
@@ -163,3 +164,5 @@ stream = ExtResource("5_iywne")
 autoplay = true
 
 [connection signal="body_entered" from="pickup" to="Player" method="_on_pickup_body_entered"]
+[connection signal="body_exited" from="pickup" to="pickup" method="_on_body_exited"]
+[connection signal="body_shape_exited" from="pickup" to="pickup" method="_on_body_shape_exited"]

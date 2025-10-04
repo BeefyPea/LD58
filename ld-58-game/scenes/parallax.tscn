@@ -13,6 +13,7 @@ motion_scale = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/sky"]
 texture_filter = 1
+position = Vector2(1, 0)
 texture = ExtResource("1_m6okp")
 centered = false
 

@@ -1,8 +1,10 @@
+RayCast2D
+Node2D
+RigidBody2D
 Sprite2D
 ParallaxLayer
 ParallaxBackground
 AudioStreamPlayer
-RayCast2D
 CollisionShape2D
 Area2D
 CanvasLayer
@@ -10,5 +12,3 @@ PanelContainer
 Camera2D
 AnimatedSprite2D
 StaticBody2D
-GridContainer
-Label
