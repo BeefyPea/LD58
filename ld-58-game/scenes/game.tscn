@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://buxcw17gxivrw"]
+[gd_scene load_steps=34 format=3 uid="uid://buxcw17gxivrw"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://1ng05d53hre8" path="res://scenes/parallax.tscn" id="1_p57ef"]
@@ -6,12 +6,29 @@
 [ext_resource type="PackedScene" uid="uid://bl4ynvq6x78dt" path="res://scenes/InventoryUI.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://scenes/Pickup.tscn" id="4_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://r710d4r07jsr" path="res://assets/sounds/chill_exploration.wav" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dd4m5gckri1jc" path="res://scenes/killzone.tscn" id="7_u5sy4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6r6c"]
 radius = 5.25
 height = 25.25
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssvqc"]
+atlas = ExtResource("2_iywne")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_264po"]
+atlas = ExtResource("2_iywne")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kice"]
+atlas = ExtResource("2_iywne")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5newe"]
+atlas = ExtResource("2_iywne")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
 atlas = ExtResource("2_iywne")
@@ -88,6 +105,23 @@ region = Rect2(96, 0, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir8iy"]
 animations = [{
 "frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_ssvqc")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_264po")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_1kice")
+}, {
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_5newe")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
 "duration": 15.01,
 "texture": SubResource("AtlasTexture_kdubu")
 }, {
@@ -162,6 +196,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
+
 [node name="GameMain" type="Node2D"]
 
 [node name="parallax" parent="." instance=ExtResource("1_p57ef")]
@@ -196,9 +232,7 @@ shape = SubResource("CapsuleShape2D_q6r6c")
 position = Vector2(1, -18)
 scale = Vector2(0.98437506, 1.0859373)
 sprite_frames = SubResource("SpriteFrames_ir8iy")
-animation = &"punch"
-frame = 2
-frame_progress = 1.0
+animation = &"death"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -17)
@@ -210,5 +244,11 @@ position_smoothing_speed = 20.0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_iywne")
 autoplay = true
+
+[node name="Killzone" parent="." instance=ExtResource("7_u5sy4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(221, 93)
+shape = SubResource("RectangleShape2D_u5sy4")
 
 [connection signal="body_entered" from="pickup" to="Player" method="_on_pickup_body_entered"]

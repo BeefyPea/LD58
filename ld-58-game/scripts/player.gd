@@ -17,9 +17,19 @@ var punch_cd = 0.5
 var punch_timer = 0.0
 var last_dir = 1 #1 for right -1 for left
 
+#death animation
+var is_dead = false
+var death_anm = "death"
+
 
 
 func _physics_process(delta):
+	
+	if is_dead:
+		return #stops all physics
+	
+	
+	
 	#punchcooldown
 	if is_punching:
 		punch_timer += delta
@@ -77,6 +87,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("oben") and is_on_floor():
 		velocity.y = jump_speed
 
+func death():
+	if is_dead:
+		return
+	is_dead = true
+	velocity = Vector2.ZERO
+	animated_sprite_2d.play("death")
 
 #func _on_pickup_body_entered(body: Node2D) -> void:
 #	pass # Replace with function body.
