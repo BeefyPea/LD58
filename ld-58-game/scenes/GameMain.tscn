@@ -1,22 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://0s00puy5yaur"]
 
-<<<<<<<< HEAD:ld-58-game/scenes/game.tscn
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://x56isvi757va" path="res://assets/playersprite.png" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://bl4ynvq6x78dt" path="res://scenes/InventoryUI.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://scenes/Pickup.tscn" id="4_u5sy4"]
-========
-[ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_aj444"]
-[ext_resource type="Texture2D" uid="uid://x56isvi757va" path="res://assets/playersprite.png" id="2_mxm02"]
-[ext_resource type="PackedScene" uid="uid://bl4ynvq6x78dt" path="res://scenes/InventoryUI.tscn" id="3_womm6"]
-[ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://scenes/Pickup.tscn" id="4_iur3i"]
->>>>>>>> 363880129ebd7770b61fa9c48278c4d4abfaf58b:ld-58-game/scenes/GameMain.tscn
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6r6c"]
 radius = 7.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
-<<<<<<<< HEAD:ld-58-game/scenes/game.tscn
 atlas = ExtResource("2_iywne")
 region = Rect2(0, 64, 32, 32)
 
@@ -30,21 +22,6 @@ region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4d7sh"]
 atlas = ExtResource("2_iywne")
-========
-atlas = ExtResource("2_mxm02")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
-atlas = ExtResource("2_mxm02")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
-atlas = ExtResource("2_mxm02")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4d7sh"]
-atlas = ExtResource("2_mxm02")
->>>>>>>> 363880129ebd7770b61fa9c48278c4d4abfaf58b:ld-58-game/scenes/GameMain.tscn
 region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir8iy"]
@@ -68,22 +45,6 @@ animations = [{
 }]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
-<<<<<<<< HEAD:ld-58-game/scenes/game.tscn
-distance = -51.0
-
-[node name="game" type="Node2D"]
-
-[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(248, 206)
-script = ExtResource("1_lbhrr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["player"]]
-position = Vector2(-1.25, -28.625)
-shape = SubResource("CapsuleShape2D_q6r6c")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(0.75, -31.624985)
-========
 distance = -355.0
 
 [node name="GameMain" type="Node2D"]
@@ -91,7 +52,7 @@ distance = -355.0
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(93, 85)
 collision_layer = 2
-script = ExtResource("1_aj444")
+script = ExtResource("1_lbhrr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["player"]]
 position = Vector2(-1.25, -1.625)
@@ -99,7 +60,6 @@ shape = SubResource("CapsuleShape2D_q6r6c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(0.75, -4.6249847)
->>>>>>>> 363880129ebd7770b61fa9c48278c4d4abfaf58b:ld-58-game/scenes/GameMain.tscn
 scale = Vector2(0.98437506, 1.0859373)
 sprite_frames = SubResource("SpriteFrames_ir8iy")
 autoplay = "default"
@@ -107,40 +67,25 @@ frame = 3
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-<<<<<<<< HEAD:ld-58-game/scenes/game.tscn
 position = Vector2(0, -26)
 zoom = Vector2(3, 3)
 
 [node name="invent" parent="Player" instance=ExtResource("3_p57ef")]
-
-[node name="pickup" parent="." instance=ExtResource("4_u5sy4")]
-position = Vector2(633, 561)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(498, 641)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, -68)
-========
-zoom = Vector2(3, 3)
-
-[node name="invent" parent="Player" instance=ExtResource("3_womm6")]
 
 [node name="Worldfloor" type="StaticBody2D" parent="."]
 position = Vector2(497, 182)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Worldfloor"]
 position = Vector2(4, 76)
->>>>>>>> 363880129ebd7770b61fa9c48278c4d4abfaf58b:ld-58-game/scenes/GameMain.tscn
 shape = SubResource("WorldBoundaryShape2D_0hol4")
 
-[node name="pickup" parent="." instance=ExtResource("4_iur3i")]
+[node name="pickup" parent="." instance=ExtResource("4_u5sy4")]
 position = Vector2(602, 557)
 
-[node name="pickup2" parent="." instance=ExtResource("4_iur3i")]
+[node name="pickup2" parent="." instance=ExtResource("4_u5sy4")]
 position = Vector2(748, 559)
 
-[node name="pickup3" parent="." instance=ExtResource("4_iur3i")]
+[node name="pickup3" parent="." instance=ExtResource("4_u5sy4")]
 position = Vector2(911, 557)
 
 [connection signal="body_entered" from="pickup" to="Player" method="_on_pickup_body_entered"]
