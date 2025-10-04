@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://0s00puy5yaur"]
+[gd_scene load_steps=22 format=3 uid="uid://0s00puy5yaur"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_4vge2"]
 [ext_resource type="Texture2D" uid="uid://x56isvi757va" path="res://assets/playersprite.png" id="2_04qyp"]
 [ext_resource type="PackedScene" uid="uid://bl4ynvq6x78dt" path="res://scenes/InventoryUI.tscn" id="3_j7wrs"]
 [ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://scenes/Pickup.tscn" id="4_fws66"]
+[ext_resource type="PackedScene" uid="uid://dd4m5gckri1jc" path="res://scenes/killzone.tscn" id="5_04qyp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6r6c"]
 radius = 7.0
@@ -24,6 +25,38 @@ region = Rect2(64, 64, 32, 32)
 atlas = ExtResource("2_04qyp")
 region = Rect2(96, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_04qyp"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7wrs"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fws66"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh0fu"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m5ht"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dubn7"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08kqv"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6ptj"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir8iy"]
 animations = [{
 "frames": [{
@@ -40,16 +73,54 @@ animations = [{
 "texture": SubResource("AtlasTexture_4d7sh")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04qyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7wrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fws66")
+}, {
+"duration": 5.01,
+"texture": SubResource("AtlasTexture_hh0fu")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m5ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dubn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08kqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6ptj")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
 }]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
-distance = -277.0
 
-[node name="node_2d" type="Node2D"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_04qyp"]
+normal = Vector2(-0.9999457, -0.010416102)
+
+[node name="game" type="Node2D"]
+position = Vector2(-7, 11)
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+collision_mask = 3
 script = ExtResource("1_4vge2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["player"]]
@@ -60,23 +131,29 @@ shape = SubResource("CapsuleShape2D_q6r6c")
 position = Vector2(134.75, 113.37501)
 scale = Vector2(0.98437506, 1.0859373)
 sprite_frames = SubResource("SpriteFrames_ir8iy")
-autoplay = "default"
-frame = 3
-frame_progress = 1.0
+animation = &"jump"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(134, 119)
 zoom = Vector2(3, 3)
 
 [node name="invent" parent="Player" instance=ExtResource("3_j7wrs")]
-position = Vector2(183, 176)
 
 [node name="pickup" parent="." instance=ExtResource("4_fws66")]
-position = Vector2(515, 312)
+position = Vector2(202, 325)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(499, 55)
+position = Vector2(414, 299)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(247, 233)
 shape = SubResource("WorldBoundaryShape2D_0hol4")
+
+[node name="Killzone" parent="." instance=ExtResource("5_04qyp")]
+position = Vector2(393, 448)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(30, 15)
+shape = SubResource("WorldBoundaryShape2D_04qyp")

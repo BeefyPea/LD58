@@ -1,9 +1,10 @@
+Timer
+CollisionShape2D
 Area2D
 CanvasLayer
 PanelContainer
 Camera2D
 AnimatedSprite2D
-CollisionShape2D
 StaticBody2D
 Sprite2D
 GridContainer
