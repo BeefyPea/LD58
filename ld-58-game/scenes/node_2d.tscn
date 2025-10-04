@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://0s00puy5yaur"]
+[gd_scene load_steps=25 format=3 uid="uid://0s00puy5yaur"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_4vge2"]
 [ext_resource type="Texture2D" uid="uid://x56isvi757va" path="res://assets/playersprite.png" id="2_04qyp"]
@@ -40,6 +40,18 @@ region = Rect2(64, 160, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hh0fu"]
 atlas = ExtResource("2_04qyp")
 region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsdmi"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifa78"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtx0q"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m5ht"]
 atlas = ExtResource("2_04qyp")
@@ -95,6 +107,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hsdmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifa78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtx0q")
+}],
+"loop": true,
+"name": &"punch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3m5ht")
 }, {
 "duration": 1.0,
@@ -131,7 +157,7 @@ shape = SubResource("CapsuleShape2D_q6r6c")
 position = Vector2(134.75, 113.37501)
 scale = Vector2(0.98437506, 1.0859373)
 sprite_frames = SubResource("SpriteFrames_ir8iy")
-animation = &"jump"
+animation = &"punch"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(134, 119)
