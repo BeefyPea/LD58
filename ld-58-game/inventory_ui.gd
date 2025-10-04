@@ -16,7 +16,7 @@ func update_ui():
  
 	for i in range(slots.size()):
 		var slot = slots[i]
-		if i < inventory_items.size():
+		if i < inventory_items.size() and slot != null:
 			# If there's an item for this slot, display it.
 			var item = inventory_items[i]
 			slot.get_node("TextureRect").texture = item.texture

@@ -1,15 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://0s00puy5yaur"]
+[gd_scene load_steps=9 format=3 uid="uid://0s00puy5yaur"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://player.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://y7herol0dbky" path="res://icon.svg" id="2_epypp"]
 [ext_resource type="PackedScene" uid="uid://bl4ynvq6x78dt" path="res://InventoryUI.tscn" id="3_0hol4"]
-[ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://Pickup.tscn" id="4_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://7p5hf12maci" path="res://pickup.tscn" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://dwi8peqhdewc3" path="res://itemclass.gd" id="4_q6r6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(632, 120)
+
+[sub_resource type="Resource" id="Resource_kdubu"]
+script = ExtResource("4_q6r6c")
+itemname = "test"
+description = "scsdnconwio"
+texture = ExtResource("2_epypp")
+metadata/_custom_type_script = "uid://dwi8peqhdewc3"
 
 [node name="node_2d" type="Node2D"]
 
@@ -21,7 +29,7 @@ position = Vector2(233, 190)
 texture = ExtResource("2_epypp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["player"]]
-position = Vector2(232, 193)
+position = Vector2(232, 195)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
@@ -39,7 +47,8 @@ position = Vector2(324, 591)
 scale = Vector2(5, 1)
 texture = ExtResource("2_epypp")
 
-[node name="Node2D" parent="." instance=ExtResource("3_0hol4")]
+[node name="pickuptest" parent="." instance=ExtResource("4_0hol4")]
+position = Vector2(483, 370)
+item = SubResource("Resource_kdubu")
 
-[node name="pickup" parent="." instance=ExtResource("4_q6r6c")]
-position = Vector2(515, 312)
+[node name="Node2D" parent="." instance=ExtResource("3_0hol4")]

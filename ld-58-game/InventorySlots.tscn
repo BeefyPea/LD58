@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://c6cfe1xpafw1v"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Panelconatiner" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.020000001
+anchor_bottom = 0.035
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 3.959999
+offset_bottom = 2.3199997
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
