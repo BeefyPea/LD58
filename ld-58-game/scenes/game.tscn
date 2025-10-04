@@ -93,6 +93,7 @@ collision_layer = 3
 
 [node name="block3" parent="." instance=ExtResource("5_iywne")]
 position = Vector2(306, 649)
+collision_layer = 3
 
 [node name="enemy2" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(295, 609)
