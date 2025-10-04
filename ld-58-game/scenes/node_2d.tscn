@@ -52,7 +52,7 @@ distance = -63.0
 [node name="game" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(217, 217)
+position = Vector2(211, 232)
 script = ExtResource("1_4vge2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["player"]]
@@ -72,18 +72,18 @@ position = Vector2(2, -16)
 zoom = Vector2(3, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(526, 559)
+position = Vector2(599, 564)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 3)
 shape = SubResource("WorldBoundaryShape2D_0hol4")
 
 [node name="killzone" parent="." instance=ExtResource("4_4vge2")]
-position = Vector2(380, 472)
+position = Vector2(411, 459)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(1, -29)
 shape = SubResource("WorldBoundaryShape2D_04qyp")
 
 [node name="block" parent="." instance=ExtResource("5_04qyp")]
-position = Vector2(370, 621)
+position = Vector2(371, 613)
