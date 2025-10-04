@@ -1,7 +1,10 @@
 extends CanvasLayer
 
 @onready var grid_container = $GridContainer
- 
+@onready var Player =  $"/root/GameMain/Player"
+var shift = Vector2(0, -32)
+
+
 func _ready():
 	# Connect to the inventory's signal.
 	# Now, whenever an item is added or removed, update_ui() is called.
@@ -24,3 +27,18 @@ func update_ui():
 			else:
 				# Otherwise, clear the slot.
 				slot.get_node("TextureRect").texture = null
+				
+func _physics_process(_float) -> void:
+	var slots = grid_container.get_children()
+	if Input.is_action_just_pressed("linkehand") == true and Handmanager.Items.size() > 0 :
+		var Place_item = Handmanager.Items[0]
+		var Place_pickup = preload("res://scenes/Pickup.tscn")
+		var instance = Place_pickup.instantiate()
+		instance.init(Place_item)
+		instance.global_position = Player.global_position + shift
+		get_tree().current_scene.add_child(instance)
+		slots[0].get_node("TextureRect").texture = null
+		Handmanager.delItem(Handmanager.Items[0])
+		
+		update_ui()
+	

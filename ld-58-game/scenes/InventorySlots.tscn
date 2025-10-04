@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c6cfe1xpafw1v"]
 
 [node name="InventorySlots" type="PanelContainer"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(32, 32)
 anchors_preset = -1
 anchor_right = 0.056
 anchor_bottom = 0.09900001
@@ -13,3 +13,5 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]

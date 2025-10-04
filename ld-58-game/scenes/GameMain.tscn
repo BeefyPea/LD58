@@ -79,6 +79,12 @@ position = Vector2(4, 76)
 shape = SubResource("WorldBoundaryShape2D_0hol4")
 
 [node name="pickup" parent="." instance=ExtResource("4_iur3i")]
-position = Vector2(421, 475)
+position = Vector2(602, 557)
+
+[node name="pickup2" parent="." instance=ExtResource("4_iur3i")]
+position = Vector2(748, 559)
+
+[node name="pickup3" parent="." instance=ExtResource("4_iur3i")]
+position = Vector2(911, 557)
 
 [connection signal="body_entered" from="pickup" to="Player" method="_on_pickup_body_entered"]
