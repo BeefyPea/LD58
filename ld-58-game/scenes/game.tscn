@@ -121,7 +121,7 @@ animations = [{
 position = Vector2(341, 274)
 
 [node name="Worldfloor" type="StaticBody2D" parent="."]
-position = Vector2(158, 126)
+position = Vector2(153, 191)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Worldfloor"]
 position = Vector2(1, -20)
