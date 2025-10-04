@@ -11,24 +11,59 @@ func _ready():
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+# punch shit
+var is_punching = false
+var punch_cd = 0.5
+var punch_timer = 0.0
+var last_dir = 1 #1 for right -1 for left
+
+
+
 func _physics_process(delta):
+	#punchcooldown
+	if is_punching:
+		punch_timer += delta
+		if punch_timer >= punch_cd:
+			is_punching = false
+			punch_timer = 0.0
+		
+	
+	
 	velocity.y += gravity * delta
 	var dir = Input.get_axis("links", "rechts")
 	
+	
+	# Update last_direction when moving
+
+	if dir != 0:
+		last_dir = dir
+	#check the punchinput
+	if Input.is_action_just_pressed("punch") and not is_punching:
+		is_punching = true
+		animated_sprite_2d.play("punch")
+		animated_sprite_2d.flip_h = true if last_dir < 0 else false
+	
+	
+	
+	
 	#spriteflip
-	if dir > 0:
-		animated_sprite_2d.flip_h = false
-	elif dir < 0:
-		animated_sprite_2d.flip_h = true
+	if not is_punching:
+		if dir > 0:
+			animated_sprite_2d.flip_h = false
+		elif dir < 0:
+			animated_sprite_2d.flip_h = true
 	
 	#player animations
-	if is_on_floor():
-		if dir == 0:
-			animated_sprite_2d.play("idle")
-		else:
-			animated_sprite_2d.play("run")
+	if is_punching:
+		animated_sprite_2d.play("punch")
 	else:
-		animated_sprite_2d.play("jump")
+		if is_on_floor():
+			if dir == 0:
+				animated_sprite_2d.play("idle")
+			else:
+				animated_sprite_2d.play("run")
+		else:
+			animated_sprite_2d.play("jump")
 	
 	
 	
