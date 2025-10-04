@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://0s00puy5yaur"]
+
+[ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_4vge2"]
+[ext_resource type="Texture2D" uid="uid://x56isvi757va" path="res://assets/playersprite.png" id="2_04qyp"]
+[ext_resource type="PackedScene" uid="uid://bl4ynvq6x78dt" path="res://scenes/InventoryUI.tscn" id="3_j7wrs"]
+[ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://scenes/Pickup.tscn" id="4_fws66"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6r6c"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d7sh"]
+atlas = ExtResource("2_04qyp")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir8iy"]
+animations = [{
+"frames": [{
+"duration": 15.01,
+"texture": SubResource("AtlasTexture_kdubu")
+}, {
+"duration": 5.01,
+"texture": SubResource("AtlasTexture_d21ai")
+}, {
+"duration": 2.11,
+"texture": SubResource("AtlasTexture_rj586")
+}, {
+"duration": 2.11,
+"texture": SubResource("AtlasTexture_4d7sh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
+distance = -277.0
+
+[node name="node_2d" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+script = ExtResource("1_4vge2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["player"]]
+position = Vector2(132.75, 116.375)
+shape = SubResource("CapsuleShape2D_q6r6c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(134.75, 113.37501)
+scale = Vector2(0.98437506, 1.0859373)
+sprite_frames = SubResource("SpriteFrames_ir8iy")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(134, 119)
+zoom = Vector2(3, 3)
+
+[node name="invent" parent="Player" instance=ExtResource("3_j7wrs")]
+position = Vector2(183, 176)
+
+[node name="pickup" parent="." instance=ExtResource("4_fws66")]
+position = Vector2(515, 312)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(499, 55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(247, 233)
+shape = SubResource("WorldBoundaryShape2D_0hol4")

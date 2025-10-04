@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bl4ynvq6x78dt"]
 
-[ext_resource type="PackedScene" uid="uid://c6cfe1xpafw1v" path="res://InventorySlots.tscn" id="1_dsn3v"]
-[ext_resource type="Script" uid="uid://guivx1ok8k7y" path="res://inventory_ui.gd" id="1_xlonu"]
+[ext_resource type="PackedScene" uid="uid://c6cfe1xpafw1v" path="res://scenes/InventorySlots.tscn" id="1_dsn3v"]
+[ext_resource type="Script" uid="uid://guivx1ok8k7y" path="res://scripts/inventory_ui.gd" id="1_xlonu"]
 
 [node name="Node2D" type="Node2D" groups=["player"]]
 

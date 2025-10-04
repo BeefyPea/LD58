@@ -1,5 +1,8 @@
-CanvasLayer
+Camera2D
+AnimatedSprite2D
 CollisionShape2D
+StaticBody2D
+CanvasLayer
 Sprite2D
 Area2D
 GridContainer
