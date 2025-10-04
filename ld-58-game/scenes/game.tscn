@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://0s00puy5yaur"]
+[gd_scene load_steps=14 format=3 uid="uid://0s00puy5yaur"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://x56isvi757va" path="res://assets/playersprite.png" id="2_iywne"]
+[ext_resource type="Texture2D" uid="uid://x56isvi757va" path="res://assets/sprites/playersprite.png" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://bl4ynvq6x78dt" path="res://scenes/InventoryUI.tscn" id="3_p57ef"]
-[ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://scenes/Pickup.tscn" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://dg5v0g3f35g0v" path="res://scenes/enemy.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://drxs5ivhcq7p5" path="res://scenes/block.tscn" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://bxfv8y7d1q7wi" path="res://assets/sounds/chill_exploration.wav" id="6_p57ef"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6r6c"]
 radius = 7.0
@@ -45,12 +47,12 @@ animations = [{
 }]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
-distance = -51.0
+distance = -53.0
 
 [node name="game" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(248, 206)
+position = Vector2(263, 570)
 script = ExtResource("1_lbhrr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["player"]]
@@ -71,12 +73,30 @@ zoom = Vector2(3, 3)
 
 [node name="invent" parent="Player" instance=ExtResource("3_p57ef")]
 
-[node name="pickup" parent="." instance=ExtResource("4_u5sy4")]
-position = Vector2(633, 561)
+[node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(507, 663)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(498, 641)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
 position = Vector2(1, -68)
 shape = SubResource("WorldBoundaryShape2D_0hol4")
+
+[node name="enemy" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(110, 648)
+
+[node name="block" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(269, 649)
+collision_layer = 3
+
+[node name="block2" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(67, 650)
+collision_layer = 3
+
+[node name="block3" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(306, 649)
+
+[node name="enemy2" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(295, 609)
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_p57ef")
+autoplay = true
