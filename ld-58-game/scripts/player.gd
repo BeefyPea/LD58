@@ -21,3 +21,7 @@ func _physics_process(delta):
 	move_and_slide()
 	if Input.is_action_just_pressed("oben") and is_on_floor():
 		velocity.y = jump_speed
+
+
+#func _on_pickup_body_entered(body: Node2D) -> void:
+#	pass # Replace with function body.

@@ -7,6 +7,7 @@
 size = Vector2(128, 128)
 
 [node name="Pickup" type="Area2D"]
+<<<<<<< HEAD
 position = Vector2(203, 184)
 script = ExtResource("1_tm65s")
 
@@ -16,4 +17,18 @@ texture = ExtResource("2_clep7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -69)
+=======
+collision_mask = 2
+script = ExtResource("1_tm65s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 3)
+texture = ExtResource("2_clep7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3)
+>>>>>>> 363880129ebd7770b61fa9c48278c4d4abfaf58b
 shape = SubResource("RectangleShape2D_7qwl2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
