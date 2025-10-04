@@ -1,13 +1,9 @@
 [gd_scene format=3 uid="uid://c6cfe1xpafw1v"]
 
-[node name="Node2D" type="Node2D"]
+[node name="InventorySlots" type="PanelContainer"]
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
