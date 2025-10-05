@@ -2,6 +2,7 @@
 .godot/
 /android/
 
+.godot/editor/filesystem_cache*
 
 # Godot editor settings
 #.godot/editor/*
