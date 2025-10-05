@@ -26,7 +26,7 @@ texture = ExtResource("2_dgjee")
 centered = false
 
 [node name="city_near" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(2, 0.5)
+motion_scale = Vector2(1, 0.5)
 motion_mirroring = Vector2(640, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/city_near"]

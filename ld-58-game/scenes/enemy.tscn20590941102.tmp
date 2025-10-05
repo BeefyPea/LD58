@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg5v0g3f35g0v"]
+
+[ext_resource type="Script" uid="uid://dxpivnm0juu5d" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://y7herol0dbky" path="res://icon.svg" id="2_md0e3"]
+[ext_resource type="PackedScene" uid="uid://bns2rmbjydkdo" path="res://scenes/hurtbox.tscn" id="3_4ra3w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
+radius = 15.0
+height = 54.0
+
+[node name="enemy" type="Node2D"]
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -28.999998)
+scale = Vector2(0.28125, 0.45312503)
+texture = ExtResource("2_md0e3")
+
+[node name="aggro_ray_cast" type="Node2D" parent="Sprite2D"]
+
+[node name="ray_casts_right" type="Node2D" parent="Sprite2D/aggro_ray_cast"]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="RayCast_right_aggro" type="RayCast2D" parent="Sprite2D/aggro_ray_cast/ray_casts_right"]
+position = Vector2(0, 41.931026)
+scale = Vector2(3.555555, 2.206896)
+target_position = Vector2(80, 0)
+collision_mask = 2
+
+[node name="RayCast_right_aggro2" type="RayCast2D" parent="Sprite2D/aggro_ray_cast/ray_casts_right"]
+position = Vector2(0, 19.862064)
+scale = Vector2(3.555555, 2.206896)
+target_position = Vector2(80, 0)
+collision_mask = 2
+
+[node name="RayCast_right_aggro3" type="RayCast2D" parent="Sprite2D/aggro_ray_cast/ray_casts_right"]
+position = Vector2(0, -2.2068977)
+scale = Vector2(3.555555, 2.206896)
+target_position = Vector2(80, 0)
+collision_mask = 2
+
+[node name="RayCast_right_aggro4" type="RayCast2D" parent="Sprite2D/aggro_ray_cast/ray_casts_right"]
+position = Vector2(0, -24.27586)
+scale = Vector2(3.555555, 2.206896)
+target_position = Vector2(80, 0)
+collision_mask = 2
+
+[node name="RayCast_right_aggro5" type="RayCast2D" parent="Sprite2D/aggro_ray_cast/ray_casts_right"]
+position = Vector2(0, -46.34483)
+scale = Vector2(3.555555, 2.206896)
+target_position = Vector2(80, 0)
+collision_mask = 2
+
+[node name="ray_casts_left" type="Node2D" parent="Sprite2D/aggro_ray_cast"]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="RayCast_left_aggro" type="RayCast2D" parent="Sprite2D/aggro_ray_cast/ray_casts_left"]
+position = Vector2(0, 41.931026)
+scale = Vector2(3.555555, 2.206896)
+target_position = Vector2(-80, 0)
+collision_mask = 2
+
+[node name="RayCast_left_aggro2" type="RayCast2D" parent="Sprite2D/aggro_ray_cast/ray_casts_left"]
+position = Vector2(0, 19.862064)
+scale = Vector2(3.555555, 2.206896)
+target_position = Vector2(-80, 0)
+collision_mask = 2
+
+[node name="RayCast_left_aggro3" type="RayCast2D" parent="Sprite2D/aggro_ray_cast/ray_casts_left"]
+position = Vector2(0, -2.2068977)
+scale = Vector2(3.555555, 2.206896)
+target_position = Vector2(-80, 0)
+collision_mask = 2
+
+[node name="RayCast_left_aggro4" type="RayCast2D" parent="Sprite2D/aggro_ray_cast/ray_casts_left"]
+position = Vector2(0, -24.27586)
+scale = Vector2(3.555555, 2.206896)
+target_position = Vector2(-80, 0)
+collision_mask = 2
+
+[node name="RayCast_left_aggro5" type="RayCast2D" parent="Sprite2D/aggro_ray_cast/ray_casts_left"]
+position = Vector2(0, -46.34483)
+scale = Vector2(3.555555, 2.206896)
+target_position = Vector2(-80, 0)
+collision_mask = 2
+
+[node name="movement_ray_cast" type="Node2D" parent="Sprite2D"]
+
+[node name="hurtbox" parent="." instance=ExtResource("3_4ra3w")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0, -29)
+shape = SubResource("CapsuleShape2D_5uy6h")
+
+[node name="RayCast_left" type="RayCast2D" parent="."]
+position = Vector2(0, -29)
+target_position = Vector2(-20, 1)
+
+[node name="RayCast_right" type="RayCast2D" parent="."]
+position = Vector2(0, -29)
+target_position = Vector2(20, 0)
+
+[node name="RayCast_bottom_left" type="RayCast2D" parent="."]
+position = Vector2(-20, -28)
+target_position = Vector2(0, 30)
+
+[node name="RayCast_bottom_right" type="RayCast2D" parent="."]
+position = Vector2(20, -29)
+target_position = Vector2(0, 31)

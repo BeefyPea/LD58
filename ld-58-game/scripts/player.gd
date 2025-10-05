@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export_range(0.0, 1.0) var friction = 0.3
 @export_range(0.0 , 1.0) var acceleration = 0.1
 
+
 func _ready():
 	add_to_group("player")
 
@@ -41,7 +42,6 @@ func _physics_process(delta):
 	move_and_slide()
 	if Input.is_action_just_pressed("oben") and is_on_floor():
 		velocity.y = jump_speed
-
 
 #func _on_pickup_body_entered(body: Node2D) -> void:
 #	pass # Replace with function body.

@@ -178,7 +178,7 @@ wait_time = 0.75
 [node name="enemy" type="Node" parent="scene_objects"]
 
 [node name="enemy1" parent="scene_objects/enemy" instance=ExtResource("8_gee14")]
-position = Vector2(60, 106)
+position = Vector2(58, 105)
 
 [node name="Worldfloor" type="StaticBody2D" parent="scene_objects"]
 position = Vector2(158, 125)

@@ -2,11 +2,10 @@
 
 [node name="InventorySlots" type="PanelContainer"]
 custom_minimum_size = Vector2(32, 32)
-anchors_preset = -1
-anchor_right = 0.056
-anchor_bottom = 0.09900001
-offset_right = -42.512
-offset_bottom = -41.152008
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 34.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
