@@ -3,6 +3,8 @@ extends Area2D
  
 @export var item1 = Item.new()
 
+var player_colliding = false
+
 func _ready():
 	item1.itemname = "Test Item"
 	item1.description = "A basic test item."
@@ -14,8 +16,18 @@ func init(item) -> void:
 	item1.texture = item.texture
 	
 	# Use item1 as needed
-func _on_body_entered(_body: CharacterBody2D) -> void:
-	if Handmanager.Items.size() < 2 and Input.is_key_pressed(KEY_E) == true:
+func _on_body_entered(body) -> void:
+	if body.name == "Player":
+		print("player in area")
+		player_colliding = true
+	
+func _on_body_exited(body) -> void:
+	if body.name == "Player":
+		print("player not in area")
+		player_colliding = false
+	
+func _process(delta: float):
+	if Handmanager.Items.size() < 2 and Input.is_key_pressed(KEY_E) == true and player_colliding == true:
 		# Assuming your player is in the "player" group.
 		Handmanager.addItem(item1)
 		queue_free() # The item disappears after being picked up.

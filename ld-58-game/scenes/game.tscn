@@ -124,6 +124,21 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_kvpfn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_vtaks"]
 resource_name = "flash"
 length = 0.7
@@ -138,21 +153,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 0.0, 0.0, 1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_kvpfn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dinhu"]
@@ -178,7 +178,7 @@ wait_time = 0.75
 [node name="enemy" type="Node" parent="scene_objects"]
 
 [node name="enemy1" parent="scene_objects/enemy" instance=ExtResource("8_gee14")]
-position = Vector2(60, 106)
+position = Vector2(79, 188)
 
 [node name="Worldfloor" type="StaticBody2D" parent="scene_objects"]
 position = Vector2(158, 125)
@@ -188,7 +188,7 @@ position = Vector2(2, -18)
 shape = SubResource("WorldBoundaryShape2D_0hol4")
 
 [node name="pickup" parent="scene_objects" instance=ExtResource("4_u5sy4")]
-position = Vector2(602, 557)
+position = Vector2(398, 91)
 
 [node name="pickup2" parent="scene_objects" instance=ExtResource("4_u5sy4")]
 position = Vector2(748, 559)

@@ -1,9 +1,9 @@
 extends CanvasLayer
 
 #@onready var grid_container = $GridContainer
-@onready var grid_container: CanvasLayer = $"."
 @onready var Player: CharacterBody2D = $"../scene_objects/Player"
 @onready var game_manager: Node = $"../game_manager"
+@onready var grid_container: GridContainer = $GridContainer
 
 var shift = Vector2(0, -32)
 
