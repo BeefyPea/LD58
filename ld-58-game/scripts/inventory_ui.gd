@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var grid_container = $GridContainer
 @onready var Player =  $"/root/GameMain/Player"
-var shift = Vector2(0, -32)
+var shift = Vector2(0, 0)
 
 
 func _ready():
