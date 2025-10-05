@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://buxcw17gxivrw"]
+[gd_scene load_steps=40 format=3 uid="uid://buxcw17gxivrw"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://1ng05d53hre8" path="res://scenes/parallax.tscn" id="1_p57ef"]
@@ -21,6 +21,22 @@ height = 25.25
 shader = ExtResource("6_vtaks")
 shader_parameter/flash_color = Color(18.892157, 18.892157, 18.892157, 1)
 shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssvqc"]
+atlas = ExtResource("2_iywne")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_264po"]
+atlas = ExtResource("2_iywne")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kice"]
+atlas = ExtResource("2_iywne")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5newe"]
+atlas = ExtResource("2_iywne")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
 atlas = ExtResource("2_iywne")
@@ -54,6 +70,30 @@ region = Rect2(64, 160, 32, 32)
 atlas = ExtResource("2_iywne")
 region = Rect2(96, 160, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dinhu"]
+atlas = ExtResource("2_iywne")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
+atlas = ExtResource("2_iywne")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trtic"]
+atlas = ExtResource("2_iywne")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
+atlas = ExtResource("2_iywne")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca42v"]
+atlas = ExtResource("2_iywne")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rysoc"]
+atlas = ExtResource("2_iywne")
+region = Rect2(0, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gee14"]
 atlas = ExtResource("2_iywne")
 region = Rect2(0, 0, 32, 32)
@@ -72,6 +112,23 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir8iy"]
 animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ssvqc")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_264po")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_1kice")
+}, {
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_5newe")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 15.01,
 "texture": SubResource("AtlasTexture_kdubu")
@@ -104,6 +161,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dinhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvuet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trtic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir15t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca42v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rysoc")
+}],
+"loop": true,
+"name": &"punch",
 "speed": 10.0
 }, {
 "frames": [{
@@ -171,14 +251,14 @@ script = ExtResource("2_0tnpc")
 hearts = [NodePath("../UI/hitpoints/HBoxContainer/hp1"), NodePath("../UI/hitpoints/HBoxContainer/hp2"), NodePath("../UI/hitpoints/HBoxContainer/hp3")]
 
 [node name="death_timer" type="Timer" parent="game_manager"]
-wait_time = 0.75
+wait_time = 2.0
 
 [node name="scene_objects" type="Node" parent="."]
 
 [node name="enemy" type="Node" parent="scene_objects"]
 
 [node name="enemy1" parent="scene_objects/enemy" instance=ExtResource("8_gee14")]
-position = Vector2(79, 188)
+position = Vector2(65, 106)
 
 [node name="Worldfloor" type="StaticBody2D" parent="scene_objects"]
 position = Vector2(158, 125)
@@ -211,7 +291,7 @@ material = SubResource("ShaderMaterial_kvpfn")
 position = Vector2(1, -18)
 scale = Vector2(0.98437506, 1.0859373)
 sprite_frames = SubResource("SpriteFrames_ir8iy")
-animation = &"jump"
+animation = &"death"
 
 [node name="Camera2D" type="Camera2D" parent="scene_objects/Player"]
 position = Vector2(0, -17)
