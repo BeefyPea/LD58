@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://buxcw17gxivrw"]
+[gd_scene load_steps=23 format=3 uid="uid://buxcw17gxivrw"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://1ng05d53hre8" path="res://scenes/parallax.tscn" id="1_p57ef"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bl4ynvq6x78dt" path="res://scenes/InventoryUI.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://scenes/Pickup.tscn" id="4_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://r710d4r07jsr" path="res://assets/sounds/chill_exploration.wav" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dc4ehm8gh1u32" path="res://scenes/npc.tscn" id="7_gee14"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
 
@@ -138,7 +139,7 @@ position = Vector2(748, 559)
 position = Vector2(911, 557)
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(160, 107)
+position = Vector2(147, 164)
 collision_layer = 2
 script = ExtResource("1_lbhrr")
 
@@ -162,6 +163,10 @@ position_smoothing_speed = 20.0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_iywne")
 autoplay = true
+
+[node name="NPC" parent="." instance=ExtResource("7_gee14")]
+position = Vector2(65, 116)
+script = null
 
 [connection signal="body_entered" from="pickup" to="Player" method="_on_pickup_body_entered"]
 [connection signal="body_exited" from="pickup" to="pickup" method="_on_body_exited"]

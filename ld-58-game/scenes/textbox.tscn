@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://du4bfihlahbnl"]
+
+[ext_resource type="Texture2D" uid="uid://b3l1mq0yvylbf" path="res://assets/textbox.png" id="1_nyk3b"]
+[ext_resource type="FontFile" uid="uid://m8w4k6tneoks" path="res://assets/fonts/Snowbell-Wp4g9.ttf" id="2_3xmdk"]
+[ext_resource type="Script" uid="uid://btcw3o6ivaxdm" path="res://scripts/textbox.gd" id="2_g5d5p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nyk3b"]
+line_spacing = 0.5
+font = ExtResource("2_3xmdk")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="Textbox" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.43300003
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_left = -7.1200004
+offset_top = 76.119995
+offset_right = 3.2799683
+offset_bottom = 3.0
+texture = ExtResource("1_nyk3b")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -7.25
+offset_right = -1.0
+offset_bottom = 7.75
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 24
+script = ExtResource("2_g5d5p")
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+text = "8==o"
+label_settings = SubResource("LabelSettings_nyk3b")
+text_overrun_behavior = 2
+
+[node name="Lettertimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Lettertimer" to="NinePatchRect/MarginContainer" method="_on_lettertimer_timeout"]

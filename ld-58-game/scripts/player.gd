@@ -43,5 +43,6 @@ func _physics_process(delta):
 		velocity.y = jump_speed
 
 
+
 #func _on_pickup_body_entered(body: Node2D) -> void:
 #	pass # Replace with function body.
