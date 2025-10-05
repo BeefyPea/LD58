@@ -8,6 +8,11 @@ var direction = 1
 var stun = 10.0
 var velocity = 0
 
+const max_hp = 5
+var hp = max_hp
+
+@onready var enemy: Node2D = $"."
+
 @onready var ray_cast_left: RayCast2D = $RayCast_left
 @onready var ray_cast_right: RayCast2D = $RayCast_right
 @onready var ray_cast_bottom_left: RayCast2D = $RayCast_bottom_left
@@ -49,5 +54,7 @@ func bounce(pos_player: float):
 		direction = -1 
 	velocity = -acceleration * SPEED * knockback
 	
-func track_player():
-	pass
+func take_dmg():
+	hp -= 1
+	if (hp == 0):
+		enemy.queue_free()

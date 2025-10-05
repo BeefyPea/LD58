@@ -31,3 +31,8 @@ func decrease_health():
 func _on_timer_timeout():
 		Engine.time_scale = 1.0
 		get_tree().reload_current_scene()
+
+
+func _on_hitbox_punch_area_entered(area):
+	if area.is_in_group("hurtbox"):
+		area.take_dmg(area)

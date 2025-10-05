@@ -7,3 +7,8 @@ func _on_body_entered(body):
 	game_manager.decrease_health()
 	var x_body_pos = body.position.x
 	enemy.bounce(x_body_pos)
+
+func take_dmg(body):
+	var x_body_pos = body.position.x
+	enemy.bounce(x_body_pos)
+	enemy.take_dmg()
