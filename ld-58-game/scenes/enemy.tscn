@@ -18,7 +18,7 @@ texture = ExtResource("2_md0e3")
 
 [node name="movement_ray_cast" type="Node2D" parent="Sprite2D"]
 
-[node name="hurtbox" parent="." instance=ExtResource("3_4ra3w")]
+[node name="hurtbox" parent="." groups=["hurtbox"] instance=ExtResource("3_4ra3w")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2(0, -29)
