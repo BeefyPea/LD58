@@ -19,6 +19,9 @@ func decrease_health():
 			if (h >= hp):
 				hearts[h].hide()
 		if (hp == 0):
+			Engine.time_scale = 0.5
+			print("uhm yeah uhhhhh you dead :/")
+			player.death()
 			timer.start()
 		await get_tree().create_timer(.7).timeout
 		iframes = false
@@ -26,4 +29,5 @@ func decrease_health():
 		pass
 		
 func _on_timer_timeout():
+		Engine.time_scale = 1.0
 		get_tree().reload_current_scene()
