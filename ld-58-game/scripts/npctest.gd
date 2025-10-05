@@ -11,6 +11,6 @@ func _ready():
 	npc1.texture = preload("res://icon.svg")
 
 func _process(delta: float) -> void:
-	if area.body_entered(player) == true:# && Input.is_key_pressed(KEY_E):
+	area.body_entered(player) and Input.is_key_pressed(KEY_E):
 		print("testtest")
 		Dialogmanager.startdialog(npc1.global_position, npc1.dialog)
