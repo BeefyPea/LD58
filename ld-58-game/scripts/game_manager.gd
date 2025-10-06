@@ -4,6 +4,8 @@ extends Node
 @onready var timer: Timer = $death_timer
 @onready var player: CharacterBody2D = $"../scene_objects/Player"
 @onready var flash_animation: AnimationPlayer = $"../scene_objects/Player/flash_animation"
+@onready var countdown_label: Label = $"../UI/countdown_label"
+@onready var countdown: Timer = $"../UI/countdown"
 
 @onready var pickup: Area2D = $"../scene_objects/obst"
 @onready var pickup_2: Area2D = $"../scene_objects/tasse"
@@ -91,6 +93,9 @@ func decrease_health():
 	else:
 		pass
 		
+func _process(delta: float) -> void:
+	countdown_label.set_text(str(countdown.get_time_left()).pad_decimals(0))
+		
 func _on_timer_timeout():
 		Engine.time_scale = 1.0
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
@@ -99,6 +104,9 @@ func _on_timer_timeout():
 func _on_hitbox_punch_area_entered(area):
 	if area.is_in_group("hurtbox"):
 		area.take_dmg(area)
+<<<<<<< HEAD
+	
+=======
 
 func _on_penner_itemgot() -> void:
 	npc_init.texture = penner_ohne
@@ -121,3 +129,4 @@ func _on_opa_itemgot() -> void:
 	npc_init.dialog= ["Oh thank you my friend!", "I'll enjoy these fruits!","Oh and I really do \n wonder who's coming"]
 	npc_init.NPCname = "Opa"
 	opa.init(npc_init)
+>>>>>>> main

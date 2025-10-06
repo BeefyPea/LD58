@@ -1,14 +1,29 @@
+<<<<<<< HEAD
+Label      - Matches the "text" keyword.
+ProgressBar
+CanvasLayer
+Marker2D
+Timer
+Label
+Container
+CollisionShape2D
+Area2D
+AnimatedSprite2D
+=======
 AnimatedSprite2D
 CollisionShape2D
 Area2D
 Sprite2D
 Button
 VBoxContainer
+>>>>>>> main
 TileMap
 AnimationPlayer
 Node2D
 Node
-Timer
 RigidBody2D
+<<<<<<< HEAD
+=======
 HBoxContainer
 TextureRect
+>>>>>>> main
