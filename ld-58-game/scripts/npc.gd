@@ -1,23 +1,40 @@
-extends Area2D
+extends Node
 
-@onready var area: Area2D = $"."
+@onready var itemarea = get_node_or_null("Itemarea")
+@onready var area = $"."
+
+@export var npc:NPC = NPC.new()
+@export var Itemgot = false
 var player_colliding = false
 @export var npc: NPC
 
-func _ready() -> void:
-	# Create the NPC instance and configure it
-	npc = NPC.new()
-	npc.dialog = ["Griechischer Wein ist so \n wie das Blut der Erde",
-				"Komm, schenk dir ein",
-				"Und wenn ich dann traurig werde,\n liegt es daran",
-				"Dass ich immer träume von daheim,\n du musst verzeih'n",
-				"Griechischer Wein und die altvertrauten Lieder",
-				"Schenk noch mal ein",
-				"Denn ich fühl die Sehnsucht wieder, in dieser Stadt",
-				"Werd' ich immer nur ein Fremder sein und allein"]
-	npc.NPCname = "npc1.NPCname"
-	npc.texture = preload("res://icon.svg")
-	
+var item_colliding = false
+
+signal itemgot
+
+func init(npc1):
+	npc.dialog = npc1.dialog
+	npc.Itemneed = npc1.Itemneed
+	print(npc.Itemneed)
+	npc.NPCname= npc1.NPCname
+	#npc.texture = npc1.texture
+	var sprite: Sprite2D = get_node_or_null("NPCsprite")
+	if !is_instance_valid(sprite): # Do we need to create it?
+		sprite      = Sprite2D.new()
+		sprite.name = "NPCsprite"
+		add_child(sprite)
+	sprite.texture = npc1.texture
+
+
+func _on_itemarea_area_entered(area: Area2D) -> void:
+	if area.name == "Pickup":
+		print(npc.Itemneed)
+		if area.item1.itemname == npc.Itemneed:
+			item_colliding = true
+			itemgot.emit()
+			area.queue_free()
+
+
 func init(npc1):
 	npc = npc1
 	
