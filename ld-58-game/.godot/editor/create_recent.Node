@@ -1,14 +1,15 @@
+Label      - Matches the "text" keyword.
+ProgressBar
+CanvasLayer
+Marker2D
+Timer
+Label
+Container
 CollisionShape2D
 Area2D
+AnimatedSprite2D
 TileMap
 AnimationPlayer
 Node2D
 Node
-Timer
 RigidBody2D
-HBoxContainer
-VBoxContainer
-TextureRect
-Panel
-Sprite2D
-ParallaxLayer

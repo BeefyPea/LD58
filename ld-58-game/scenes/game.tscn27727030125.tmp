@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://buxcw17gxivrw"]
+[gd_scene load_steps=48 format=3 uid="uid://buxcw17gxivrw"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://1ng05d53hre8" path="res://scenes/parallax.tscn" id="1_p57ef"]
@@ -9,13 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://dc4ehm8gh1u32" path="res://scenes/npc.tscn" id="4_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://scenes/Pickup.tscn" id="4_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://r710d4r07jsr" path="res://assets/sounds/chill_exploration.wav" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://coyf2vyn2xj74" path="res://scenes/boss.tscn" id="5_trtic"]
 [ext_resource type="Texture2D" uid="uid://bomlt8u5ad0g" path="res://assets/sprites/heart.png" id="6_u5sy4"]
 [ext_resource type="Shader" uid="uid://bsnofo8l5c2ia" path="res://assets/sprites/player_hurt.gdshader" id="6_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dg5v0g3f35g0v" path="res://scenes/enemy.tscn" id="8_gee14"]
 [ext_resource type="Texture2D" uid="uid://b8raiaydfmwcn" path="res://assets/sprites/House_street_stuff.png" id="12_dinhu"]
 [ext_resource type="Texture2D" uid="uid://devdmj4mijdvc" path="res://assets/sprites/Park_sprites.png" id="12_kvuet"]
-[ext_resource type="FontFile" uid="uid://m8w4k6tneoks" path="res://assets/fonts/Snowbell-Wp4g9.ttf" id="14_ca42v"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
 
@@ -251,9 +249,6 @@ _data = {
 radius = 4.6043167
 height = 20.317444
 
-[sub_resource type="Theme" id="Theme_rysoc"]
-default_font = ExtResource("14_ca42v")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trtic"]
 texture = ExtResource("12_kvuet")
 texture_region_size = Vector2i(32, 32)
@@ -416,16 +411,12 @@ wait_time = 2.0
 
 [node name="enemy" type="Node" parent="scene_objects"]
 script = ExtResource("3_trtic")
-boss_scene = ExtResource("5_trtic")
 
 [node name="enemy1" parent="scene_objects/enemy" instance=ExtResource("8_gee14")]
 position = Vector2(550, 287)
 
 [node name="NPC" parent="scene_objects/enemy" instance=ExtResource("4_kvpfn")]
 position = Vector2(96, 84)
-
-[node name="boss_spawnpoint" type="Marker2D" parent="scene_objects/enemy"]
-position = Vector2(1944, 88)
 
 [node name="Worldfloor" type="StaticBody2D" parent="scene_objects"]
 position = Vector2(158, 125)
@@ -540,15 +531,9 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
-theme = SubResource("Theme_rysoc")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.7529412)
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="countdown" type="Timer" parent="UI"]
 wait_time = 5.0
-one_shot = true
 autostart = true
 
 [node name="Citytiles" type="TileMap" parent="."]
@@ -560,4 +545,5 @@ layer_0/tile_data = PackedInt32Array(262140, 1, 6, 262141, 1, 7, 262142, 1, 6, 2
 [connection signal="timeout" from="game_manager/death_timer" to="game_manager" method="_on_timer_timeout"]
 [connection signal="body_entered" from="scene_objects/pickup" to="scene_objects/Player" method="_on_pickup_body_entered"]
 [connection signal="area_entered" from="scene_objects/Player/hitbox_punch" to="game_manager" method="_on_hitbox_punch_area_entered"]
+[connection signal="timeout" from="UI/countdown" to="game_manager" method="_on_countdown_timeout"]
 [connection signal="timeout" from="UI/countdown" to="scene_objects/enemy" method="_on_countdown_timeout"]

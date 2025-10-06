@@ -1,21 +1,160 @@
-[gd_scene load_steps=51 format=3 uid="uid://buxcw17gxivrw"]
+[gd_scene load_steps=70 format=3 uid="uid://buxcw17gxivrw"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://1ng05d53hre8" path="res://scenes/parallax.tscn" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://ck3k5gjpo7q8y" path="res://scripts/game_manager.gd" id="2_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://x56isvi757va" path="res://assets/sprites/playersprite.png" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://bl4ynvq6x78dt" path="res://scenes/InventoryUI.tscn" id="3_p57ef"]
-[ext_resource type="Script" uid="uid://w0niox5xamlh" path="res://scripts/enemy_manager.gd" id="3_trtic"]
 [ext_resource type="PackedScene" uid="uid://dc4ehm8gh1u32" path="res://scenes/npc.tscn" id="4_kvpfn"]
+[ext_resource type="Script" uid="uid://08lygwhunpyc" path="res://scripts/boss.gd" id="4_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://d0lpugivpqeh0" path="res://scenes/Pickup.tscn" id="4_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://d2ghiiflq8tmd" path="res://assets/sprites/rattenbossrechts.png" id="5_264po"]
 [ext_resource type="AudioStream" uid="uid://r710d4r07jsr" path="res://assets/sounds/chill_exploration.wav" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://coyf2vyn2xj74" path="res://scenes/boss.tscn" id="5_trtic"]
+[ext_resource type="Texture2D" uid="uid://b67mxue7hx22w" path="res://assets/sprites/rattenbosslinks.png" id="6_1kice"]
 [ext_resource type="Texture2D" uid="uid://bomlt8u5ad0g" path="res://assets/sprites/heart.png" id="6_u5sy4"]
 [ext_resource type="Shader" uid="uid://bsnofo8l5c2ia" path="res://assets/sprites/player_hurt.gdshader" id="6_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bns2rmbjydkdo" path="res://scenes/hurtbox.tscn" id="7_5newe"]
 [ext_resource type="PackedScene" uid="uid://dg5v0g3f35g0v" path="res://scenes/enemy.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://cs3bkh1kl31ix" path="res://scenes/boss_trigger.tscn" id="10_trtic"]
 [ext_resource type="Texture2D" uid="uid://b8raiaydfmwcn" path="res://assets/sprites/House_street_stuff.png" id="12_dinhu"]
 [ext_resource type="Texture2D" uid="uid://devdmj4mijdvc" path="res://assets/sprites/Park_sprites.png" id="12_kvuet"]
-[ext_resource type="FontFile" uid="uid://m8w4k6tneoks" path="res://assets/fonts/Snowbell-Wp4g9.ttf" id="14_ca42v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37s47"]
+atlas = ExtResource("5_264po")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt5mj"]
+atlas = ExtResource("6_1kice")
+region = Rect2(128, 192, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1j6l"]
+atlas = ExtResource("6_1kice")
+region = Rect2(0, 192, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl11u"]
+atlas = ExtResource("6_1kice")
+region = Rect2(0, 128, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhx41"]
+atlas = ExtResource("5_264po")
+region = Rect2(0, 192, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnb83"]
+atlas = ExtResource("5_264po")
+region = Rect2(128, 192, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sww3w"]
+atlas = ExtResource("5_264po")
+region = Rect2(128, 128, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suyxu"]
+atlas = ExtResource("6_1kice")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgl2t"]
+atlas = ExtResource("6_1kice")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qouja"]
+atlas = ExtResource("6_1kice")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wljb1"]
+atlas = ExtResource("6_1kice")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2yb1"]
+atlas = ExtResource("5_264po")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js0lu"]
+atlas = ExtResource("5_264po")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxtfn"]
+atlas = ExtResource("5_264po")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twgab"]
+atlas = ExtResource("5_264po")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_02fa5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37s47")
+}],
+"loop": true,
+"name": &"change_dir",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt5mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1j6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pl11u")
+}],
+"loop": true,
+"name": &"hit_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhx41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnb83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sww3w")
+}],
+"loop": true,
+"name": &"hit_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suyxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgl2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qouja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wljb1")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2yb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js0lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxtfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twgab")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
+radius = 7.0
+height = 28.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
 
@@ -251,8 +390,8 @@ _data = {
 radius = 4.6043167
 height = 20.317444
 
-[sub_resource type="Theme" id="Theme_rysoc"]
-default_font = ExtResource("14_ca42v")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir15t"]
+size = Vector2(293.5, 147)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trtic"]
 texture = ExtResource("12_kvuet")
@@ -415,17 +554,39 @@ wait_time = 2.0
 [node name="scene_objects" type="Node" parent="."]
 
 [node name="enemy" type="Node" parent="scene_objects"]
-script = ExtResource("3_trtic")
-boss_scene = ExtResource("5_trtic")
 
 [node name="enemy1" parent="scene_objects/enemy" instance=ExtResource("8_gee14")]
-position = Vector2(550, 287)
+position = Vector2(548, 115)
+
+[node name="boss" type="Node2D" parent="scene_objects/enemy"]
+position = Vector2(1018.00006, 135)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("4_ssvqc")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="scene_objects/enemy/boss"]
+position = Vector2(0, -28.999998)
+scale = Vector2(0.28125, 0.45312503)
+sprite_frames = SubResource("SpriteFrames_02fa5")
+animation = &"change_dir"
+
+[node name="movement_ray_cast" type="Node2D" parent="scene_objects/enemy/boss/Sprite2D"]
+
+[node name="hurtbox" parent="scene_objects/enemy/boss" groups=["hurtbox"] instance=ExtResource("7_5newe")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene_objects/enemy/boss/hurtbox"]
+position = Vector2(-1, -28)
+shape = SubResource("CapsuleShape2D_5uy6h")
+
+[node name="RayCast_left" type="RayCast2D" parent="scene_objects/enemy/boss"]
+position = Vector2(0, -25)
+target_position = Vector2(-19, 0)
+
+[node name="RayCast_right" type="RayCast2D" parent="scene_objects/enemy/boss"]
+position = Vector2(0, -25)
+target_position = Vector2(17, 0)
 
 [node name="NPC" parent="scene_objects/enemy" instance=ExtResource("4_kvpfn")]
 position = Vector2(96, 84)
-
-[node name="boss_spawnpoint" type="Marker2D" parent="scene_objects/enemy"]
-position = Vector2(1944, 88)
 
 [node name="Worldfloor" type="StaticBody2D" parent="scene_objects"]
 position = Vector2(158, 125)
@@ -486,6 +647,13 @@ disabled = true
 stream = ExtResource("5_iywne")
 autoplay = true
 
+[node name="boss_trigger" parent="scene_objects" instance=ExtResource("10_trtic")]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene_objects/boss_trigger"]
+position = Vector2(897, 1)
+shape = SubResource("RectangleShape2D_ir15t")
+
 [node name="UI" parent="." instance=ExtResource("3_p57ef")]
 
 [node name="hitpoints" type="Panel" parent="UI"]
@@ -532,25 +700,6 @@ layout_mode = 2
 texture = ExtResource("6_u5sy4")
 expand_mode = 2
 
-[node name="countdown_label" type="Label" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
-grow_horizontal = 2
-theme = SubResource("Theme_rysoc")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.7529412)
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="countdown" type="Timer" parent="UI"]
-wait_time = 5.0
-one_shot = true
-autostart = true
-
 [node name="Citytiles" type="TileMap" parent="."]
 position = Vector2(104, 8)
 tile_set = SubResource("TileSet_trtic")
@@ -560,4 +709,3 @@ layer_0/tile_data = PackedInt32Array(262140, 1, 6, 262141, 1, 7, 262142, 1, 6, 2
 [connection signal="timeout" from="game_manager/death_timer" to="game_manager" method="_on_timer_timeout"]
 [connection signal="body_entered" from="scene_objects/pickup" to="scene_objects/Player" method="_on_pickup_body_entered"]
 [connection signal="area_entered" from="scene_objects/Player/hitbox_punch" to="game_manager" method="_on_hitbox_punch_area_entered"]
-[connection signal="timeout" from="UI/countdown" to="scene_objects/enemy" method="_on_countdown_timeout"]

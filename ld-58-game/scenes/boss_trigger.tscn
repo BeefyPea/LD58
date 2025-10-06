@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs3bkh1kl31ix"]
-
-[ext_resource type="Script" uid="uid://b7odf4mmxg7us" path="res://scripts/boss_trigger.gd" id="1_3leo7"]
-
-[node name="boss_trigger" type="Area2D"]
-script = ExtResource("1_3leo7")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]

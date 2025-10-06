@@ -4,6 +4,8 @@ extends Node
 @onready var timer: Timer = $death_timer
 @onready var player: CharacterBody2D = $"../scene_objects/Player"
 @onready var flash_animation: AnimationPlayer = $"../scene_objects/Player/flash_animation"
+@onready var countdown_label: Label = $"../UI/countdown_label"
+@onready var countdown: Timer = $"../UI/countdown"
 
 var hp = 3
 var iframes = false
@@ -28,6 +30,9 @@ func decrease_health():
 	else:
 		pass
 		
+func _process(delta: float) -> void:
+	countdown_label.set_text(str(countdown.get_time_left()).pad_decimals(0))
+		
 func _on_timer_timeout():
 		Engine.time_scale = 1.0
 		get_tree().reload_current_scene()
@@ -36,3 +41,4 @@ func _on_timer_timeout():
 func _on_hitbox_punch_area_entered(area):
 	if area.is_in_group("hurtbox"):
 		area.take_dmg(area)
+	
