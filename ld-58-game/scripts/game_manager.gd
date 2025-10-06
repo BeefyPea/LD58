@@ -5,6 +5,33 @@ extends Node
 @onready var player: CharacterBody2D = $"../scene_objects/Player"
 @onready var flash_animation: AnimationPlayer = $"../scene_objects/Player/flash_animation"
 
+@onready var pickup: Area2D = $"../scene_objects/pickup"
+@onready var pickup_2: Area2D = $"../scene_objects/pickup2"
+@onready var pickup_3: Area2D = $"../scene_objects/pickup3"
+@onready var pickup_4: Area2D = $"../scene_objects/pickup4"
+
+#items init:
+
+var texture_tasse = load("res://assets/sprites/mug.png") as Texture2D
+var texture_ratte = load("res://assets/sprites/ratte.png") as Texture2D
+var texture_obst = load("res://assets/sprites/obst.png") as Texture2D
+var texture_unterhose = load("res://assets/sprites/unterhose.png") as Texture2D
+
+var item_init = Item.new()
+
+func _ready():
+	item_init.texture = texture_obst
+	pickup.init(item_init) 
+	
+	item_init.texture = texture_tasse
+	pickup_2.init(item_init)
+
+	item_init.texture = texture_unterhose
+	pickup_3.init(item_init)
+	
+	item_init.texture = texture_ratte
+	pickup_4.init(item_init)
+
 var hp = 3
 var iframes = false
 
