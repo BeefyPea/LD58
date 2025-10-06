@@ -1,7 +1,7 @@
-TileMap
-AnimationPlayer
 CollisionShape2D
 Area2D
+TileMap
+AnimationPlayer
 Node2D
 Node
 Timer
@@ -12,4 +12,3 @@ TextureRect
 Panel
 Sprite2D
 ParallaxLayer
-ParallaxBackground
