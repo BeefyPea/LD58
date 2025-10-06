@@ -2,9 +2,10 @@
 extends Area2D
 @export var item1 = Item.new()
 var player_colliding = false
+@onready var pickup: Area2D = $"."
+
 
 func _ready():
-	item1.itemname = "Test Item"
 	item1.description = "A basic test item."
 
 func init(item) -> void:

@@ -91,3 +91,12 @@ func death():
 	is_dead = true
 	velocity = Vector2.ZERO
 	animated_sprite_2d.play("death")
+
+func _on_penner_itemgot() -> void:
+	jump_speed = -800
+
+func _on_lonk_itemgot() -> void:
+	speed = 350
+
+func _on_opa_itemgot() -> void:
+	acceleration = 0.3
