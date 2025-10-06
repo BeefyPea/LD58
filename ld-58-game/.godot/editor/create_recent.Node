@@ -1,3 +1,6 @@
+Sprite2D
+Button
+VBoxContainer
 TileMap
 AnimationPlayer
 CollisionShape2D
@@ -7,9 +10,5 @@ Node
 Timer
 RigidBody2D
 HBoxContainer
-VBoxContainer
 TextureRect
 Panel
-Sprite2D
-ParallaxLayer
-ParallaxBackground
