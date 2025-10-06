@@ -1,7 +1,8 @@
+AnimatedSprite2D
 TileMap
-AnimationPlayer
 CollisionShape2D
 Area2D
+AnimationPlayer
 Node2D
 Node
 Timer
@@ -11,5 +12,3 @@ VBoxContainer
 TextureRect
 Panel
 Sprite2D
-ParallaxLayer
-ParallaxBackground
