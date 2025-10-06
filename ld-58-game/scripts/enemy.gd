@@ -29,19 +29,15 @@ func _process(delta: float) -> void:
 		velocity += acceleration * SPEED * delta
 	position.x += 1 * velocity * acceleration * direction * delta
 	if ray_cast_right.is_colliding():
-		velocity = 0
 		direction = -1
 		animated_sprite.play("Left")
 	if ray_cast_left.is_colliding():
-		velocity = 0
 		direction = 1
 		animated_sprite.play("Right")
 	if ray_cast_bottom_right.is_colliding() == false:
-		velocity = 0
 		direction = -1
 		animated_sprite.play("Left")
 	if ray_cast_bottom_left.is_colliding() == false:
-		velocity = 0
 		direction = 1
 		animated_sprite.play("Right")
 	for i in ray_casts_right_aggro:

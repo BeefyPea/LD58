@@ -9,6 +9,9 @@ extends Node
 @onready var pickup_2: Area2D = $"../scene_objects/tasse"
 @onready var pickup_3: Area2D = $"../scene_objects/unterhose"
 @onready var pickup_4: Area2D = $"../scene_objects/ratte"
+@onready var countdown_label: Label = $"../UI/countdown_label"
+@onready var countdown: Timer = $"../UI/countdown"
+
 
 @onready var penner: Area2D = $"../scene_objects/Penner"
 @onready var lonk: Area2D = $"../scene_objects/Lonk"
@@ -91,9 +94,12 @@ func decrease_health():
 	else:
 		pass
 		
+func _process(delta: float) -> void:
+	countdown_label.set_text(str(countdown.get_time_left()).pad_decimals(0))
+
 func _on_timer_timeout():
 		Engine.time_scale = 1.0
-		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/death.tscn")
 
 
 func _on_hitbox_punch_area_entered(area):

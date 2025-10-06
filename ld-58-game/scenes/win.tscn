@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwm58a7s4k7p2"]
+
+[ext_resource type="Script" uid="uid://bl0wghjjjwjcf" path="res://scripts/win.gd" id="1_826fv"]
+[ext_resource type="Texture2D" uid="uid://cwd0bkur0r2ee" path="res://assets/sprites/Endscreen.png" id="2_iiocm"]
+[ext_resource type="FontFile" uid="uid://m8w4k6tneoks" path="res://assets/fonts/Snowbell-Wp4g9.ttf" id="2_yxbqr"]
+
+[sub_resource type="Theme" id="Theme_tylv2"]
+default_font = ExtResource("2_yxbqr")
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_826fv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -46.0
+offset_top = -111.0
+offset_right = 66.0
+offset_bottom = -71.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_tylv2")
+text = "You Won!"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_iiocm")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
