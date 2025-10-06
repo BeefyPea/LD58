@@ -427,10 +427,12 @@ shape = SubResource("WorldBoundaryShape2D_0hol4")
 position = Vector2(398, 91)
 
 [node name="pickup2" parent="scene_objects" instance=ExtResource("4_u5sy4")]
-position = Vector2(748, 559)
+position = Vector2(505, 99)
 
 [node name="pickup3" parent="scene_objects" instance=ExtResource("4_u5sy4")]
-position = Vector2(911, 557)
+position = Vector2(668, 97)
+
+[node name="pickup4" parent="scene_objects" instance=ExtResource("4_u5sy4")]
 
 [node name="Player" type="CharacterBody2D" parent="scene_objects" groups=["player"]]
 z_index = 20
