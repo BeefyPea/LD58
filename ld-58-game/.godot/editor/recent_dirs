@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 res://assets/fonts
 res://scenes
 res://scripts
 res://assets/sprites
+=======
+res://assets/sprites
+res://assets/fonts
+res://scenes
+res://scripts
+>>>>>>> main
 res://assets
 res://

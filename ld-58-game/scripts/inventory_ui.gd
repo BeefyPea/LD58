@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var game_manager: Node = $"../game_manager"
 @onready var grid_container: GridContainer = $GridContainer
 
-var shift = Vector2(0, -32)
+var shift = Vector2(0, -16)
 
 
 func _ready():
