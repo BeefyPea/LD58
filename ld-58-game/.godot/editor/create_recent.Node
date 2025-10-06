@@ -1,14 +1,14 @@
+CollisionShape2D
+Area2D
+AnimatedSprite2D
 Sprite2D
 Button
 VBoxContainer
 TileMap
 AnimationPlayer
-CollisionShape2D
-Area2D
 Node2D
 Node
 Timer
 RigidBody2D
 HBoxContainer
 TextureRect
-Panel

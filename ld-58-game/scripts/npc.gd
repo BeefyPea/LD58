@@ -6,12 +6,11 @@ extends Node
 @export var npc:NPC = NPC.new()
 @export var Itemgot = false
 var player_colliding = false
-@export var npc: NPC
-
 var item_colliding = false
 
 signal itemgot
 
+	
 func init(npc1):
 	npc.dialog = npc1.dialog
 	npc.Itemneed = npc1.Itemneed
@@ -24,7 +23,11 @@ func init(npc1):
 		sprite.name = "NPCsprite"
 		add_child(sprite)
 	sprite.texture = npc1.texture
-
+	
+func _on_body_entered(body) -> void:
+	print(body.name)
+	if body.name == "Player":
+		player_colliding = true
 
 func _on_itemarea_area_entered(area: Area2D) -> void:
 	if area.name == "Pickup":
@@ -34,17 +37,12 @@ func _on_itemarea_area_entered(area: Area2D) -> void:
 			itemgot.emit()
 			area.queue_free()
 
-
-func init(npc1):
-	npc = npc1
 	
-func _on_body_entered(body) -> void:
-	if body.name == "Player":
-		player_colliding = true
-
 func _on_body_exited(body) -> void:
 	if body.name == "Player":
 		player_colliding = false
+
+
 
 
 func _process(_delta: float) -> void:

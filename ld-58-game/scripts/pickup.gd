@@ -6,10 +6,10 @@ var player_colliding = false
 
 
 func _ready():
-	item1.itemname = "Test Item"
 	item1.description = "A basic test item."
 
 func init(item) -> void:
+	item1.itemname = item.itemname
 	item1.description = item.description
 	item1.texture = item.texture
 	var sprite: Sprite2D = get_node_or_null("PickupIcon")

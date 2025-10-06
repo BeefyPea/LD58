@@ -22,11 +22,11 @@ var texture_obst = load("res://assets/sprites/obst.png") as Texture2D
 var texture_unterhose = load("res://assets/sprites/unterhose.png") as Texture2D
 
 var item_init = Item.new()
+var npc_init: NPC
 
 @onready var penner_ohne: AnimatedSprite2D = $"../scene_objects/Penner/Penner_ohne"
 @onready var lonk_sprite: AnimatedSprite2D = $"../scene_objects/Lonk/LonkSprite"
 @onready var opa_sprite: AnimatedSprite2D = $"../scene_objects/Opa/OpaSprite"
-
 
 func _ready():
 	penner_ohne.play("default")
@@ -103,7 +103,7 @@ func _on_hitbox_punch_area_entered(area):
 func _on_penner_itemgot() -> void:
 	npc_init.texture = penner_ohne
 	penner_ohne.play("mit")
-	npc_init.Itemneed = "unterhose"
+	npc_init.Itemneed = "XXX"
 	npc_init.dialog= ["THEY'RE COMING!","I SAW IT!", "THEY'RE COMING!","im not as cold now", "thanks","BUT LISTEN","SOOOON","SOON THEY'LL ARRIVE!"]
 	npc_init.NPCname = "Penner"
 	penner.init(npc_init)
@@ -117,7 +117,7 @@ func _on_lonk_itemgot() -> void:
 
 func _on_opa_itemgot() -> void:
 	npc_init.texture = opa_sprite
-	npc_init.Itemneed = "obst"
+	npc_init.Itemneed = "XXX"
 	npc_init.dialog= ["Oh thank you my friend!", "I'll enjoy these fruits!","Oh and I really do \n wonder who's coming"]
 	npc_init.NPCname = "Opa"
 	opa.init(npc_init)
