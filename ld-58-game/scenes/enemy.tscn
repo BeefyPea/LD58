@@ -1,8 +1,78 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg5v0g3f35g0v"]
+[gd_scene load_steps=15 format=3 uid="uid://dg5v0g3f35g0v"]
 
 [ext_resource type="Script" uid="uid://dxpivnm0juu5d" path="res://scripts/enemy.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://y7herol0dbky" path="res://icon.svg" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://c8jhmim2ogdpn" path="res://assets/sprites/enimem_left.png" id="2_5uy6h"]
 [ext_resource type="PackedScene" uid="uid://bns2rmbjydkdo" path="res://scenes/hurtbox.tscn" id="3_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://b6m26ol44cl8f" path="res://assets/sprites/enminem.png" id="3_c4w8v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("2_5uy6h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nenq2"]
+atlas = ExtResource("2_5uy6h")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md484"]
+atlas = ExtResource("2_5uy6h")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipns3"]
+atlas = ExtResource("2_5uy6h")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qclf"]
+atlas = ExtResource("3_c4w8v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8i8w"]
+atlas = ExtResource("3_c4w8v")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otmr2"]
+atlas = ExtResource("3_c4w8v")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtq4b"]
+atlas = ExtResource("3_c4w8v")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j0cyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nenq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md484")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipns3")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qclf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8i8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otmr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtq4b")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
 radius = 15.0
@@ -11,10 +81,11 @@ height = 54.0
 [node name="enemy" type="Node2D"]
 script = ExtResource("1_md0e3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -28.999998)
-scale = Vector2(0.28125, 0.45312503)
-texture = ExtResource("2_md0e3")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_j0cyh")
+animation = &"Left"
 
 [node name="movement_ray_cast" type="Node2D" parent="Sprite2D"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://buxcw17gxivrw"]
+[gd_scene load_steps=70 format=3 uid="uid://buxcw17gxivrw"]
 
 [ext_resource type="Script" uid="uid://cdmoig6nx7y73" path="res://scripts/player.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://1ng05d53hre8" path="res://scenes/parallax.tscn" id="1_p57ef"]
@@ -576,7 +576,7 @@ wait_time = 2.0
 [node name="enemy" type="Node" parent="scene_objects"]
 
 [node name="enemy1" parent="scene_objects/enemy" instance=ExtResource("8_gee14")]
-position = Vector2(139, 284)
+position = Vector2(277, -192)
 
 [node name="Worldfloor" type="StaticBody2D" parent="scene_objects"]
 position = Vector2(158, 125)
@@ -586,15 +586,16 @@ position = Vector2(2, -18)
 shape = SubResource("WorldBoundaryShape2D_0hol4")
 
 [node name="obst" parent="scene_objects" instance=ExtResource("4_u5sy4")]
-position = Vector2(398, 91)
+position = Vector2(-797, 92)
 
 [node name="tasse" parent="scene_objects" instance=ExtResource("4_u5sy4")]
-position = Vector2(505, 99)
+position = Vector2(-5745, -381)
 
 [node name="unterhose" parent="scene_objects" instance=ExtResource("4_u5sy4")]
-position = Vector2(668, 97)
+position = Vector2(-771, -428)
 
 [node name="ratte" parent="scene_objects" instance=ExtResource("4_u5sy4")]
+position = Vector2(1603, -658)
 
 [node name="Player" type="CharacterBody2D" parent="scene_objects" groups=["player"]]
 z_index = 20
@@ -640,26 +641,28 @@ stream = ExtResource("5_iywne")
 autoplay = true
 
 [node name="Penner" parent="scene_objects" instance=ExtResource("4_kvpfn")]
-position = Vector2(48, 97)
+position = Vector2(-1321, 91)
+scale = Vector2(1, 1)
 
 [node name="Penner_ohne" type="AnimatedSprite2D" parent="scene_objects/Penner"]
 sprite_frames = SubResource("SpriteFrames_sgl2t")
 animation = &"mit"
 
 [node name="Lonk" parent="scene_objects" instance=ExtResource("4_kvpfn")]
-position = Vector2(-45, 90)
+position = Vector2(-6669, 78)
+scale = Vector2(1, 1)
 
 [node name="LonkSprite" type="AnimatedSprite2D" parent="scene_objects/Lonk"]
 sprite_frames = SubResource("SpriteFrames_twgab")
 
 [node name="Opa" parent="scene_objects" instance=ExtResource("4_kvpfn")]
-position = Vector2(-68, 93)
+position = Vector2(-2108, 92)
+scale = Vector2(1, 1)
 
 [node name="OpaSprite" type="AnimatedSprite2D" parent="scene_objects/Opa"]
 sprite_frames = SubResource("SpriteFrames_8ool0")
 
 [node name="UI" parent="." instance=ExtResource("3_p57ef")]
-visible = false
 
 [node name="hitpoints" type="Panel" parent="UI"]
 anchors_preset = 1
