@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759703163
+::res://::1759751225
 icon.svg::CompressedTexture2D::1751025412625206648::1759574854::1759574854::1::::<><><>0<>0<>0051f95039046ad005f30b1af0b53a8c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://addons/::1759677130
 ::res://addons/fonts/::1759679955
@@ -21,7 +21,7 @@ textbox.png::CompressedTexture2D::4376017412304634147::1759679955::1759679955::1
 Snowbell-Wp4g9.ttf::FontFile::911778725407722926::1759679955::1759679973::1::::<><><>0<>0<>5bd296ba4322cad718a55b51994bfbbe<>res://.godot/imported/Snowbell-Wp4g9.ttf-0d8463bf66d610c5b6f3a4c355d7c08f.fontdata::
 ::res://assets/sounds/::1759665114
 chill_exploration.wav::AudioStreamWAV::1260893919812471689::1759665114::1759665114::1::::<><><>0<>0<>7510443d0a90f8df5b2e6d812abc64e7<>res://.godot/imported/chill_exploration.wav-46b46f6062dceedddd8cda4c7ced155b.sample::
-::res://assets/sprites/::1759703149
+::res://assets/sprites/::1759704040
 city_far.png::CompressedTexture2D::1353595590251986688::1759665114::1759664741::1::::<><><>0<>0<>f07a039795ef8f05b3e5c7d7beebaa51<>res://.godot/imported/city_far.png-e7c2c92fad8a748257373893a883c7da.ctex::
 city_near.png::CompressedTexture2D::6009242895201563987::1759608300::1759608449::1::::<><><>0<>0<>fbe7440fd0b4b597587cc36b1cede920<>res://.godot/imported/city_near.png-9784831c77fcd9ea75d61db34da5b79c.ctex::
 heart.png::CompressedTexture2D::99839429712022020::1759661533::1759661680::1::::<><><>0<>0<>5352479ab7679bae78573b0ca662efdc<>res://.godot/imported/heart.png-c56d6fd64b59465fefa3cddd61b854ed.ctex::
@@ -29,13 +29,13 @@ House_street_stuff.png::CompressedTexture2D::4737761269137216185::1759668930::17
 Items.png::CompressedTexture2D::5031014542235096930::1759702095::1759703149::1::::<><><>0<>0<>4fe6de3cfb43750c9ff5a18676bd2635<>res://.godot/imported/Items.png-368f82c54e209e22a2788d3d6b3e71d2.ctex::
 Park_sprites.png::CompressedTexture2D::7483573457037599200::1759702095::1759703149::1::::<><><>0<>0<>3c03e6397cf9ee980912607d10f0c1c7<>res://.godot/imported/Park_sprites.png-c84e5388b2168208b5fde276c650da77.ctex::
 playersprite.png::CompressedTexture2D::1678172227692195962::1759608300::1759608300::1::::<><><>0<>0<>589252ac388d26fcee2d9842b2b08fd9<>res://.godot/imported/playersprite.png-85e6d26a8d497203626d6d629c344f48.ctex::
-player_hurt.gdshader::Shader::3677516533694153612::1759681059::0::1::::<><><>0<>0<><>::
+player_hurt.gdshader::Shader::3677516533694153612::1759704040::0::1::::<><><>0<>0<><>::
 rattenbosslinks.png::CompressedTexture2D::4629105659885472576::1759702095::1759703149::1::::<><><>0<>0<>0c197c7287f7bc944a39febb008f880b<>res://.godot/imported/rattenbosslinks.png-ee19557501e5e66d06cd5158c290c5fb.ctex::
 rattenbossrechts.png::CompressedTexture2D::9067186829564454287::1759702095::1759703149::1::::<><><>0<>0<>95b9f0c013544f076800081707b10f2c<>res://.godot/imported/rattenbossrechts.png-c52779695bcf66d225da1db5db1b68c9.ctex::
 sky.png::CompressedTexture2D::2898496908296799288::1759608300::1759608449::1::::<><><>0<>0<>3bdc875c06b400d5e6a2ae4b68a099b9<>res://.godot/imported/sky.png-e60347a03dfb00496d53d3cca2f20e8a.ctex::
-::res://scenes/::1759703157
+::res://scenes/::1759705597
 enemy.tscn::PackedScene::7643646505885414863::1759679955::0::1::::<><><>0<>0<><>::uid://dxpivnm0juu5d::::res://scripts/enemy.gd<>uid://y7herol0dbky::::res://icon.svg<>uid://bns2rmbjydkdo::::res://scenes/hurtbox.tscn
-game.tscn::PackedScene::3837840381593096860::1759703157::0::1::::<><><>0<>0<><>::uid://cdmoig6nx7y73::::res://scripts/player.gd<>uid://1ng05d53hre8::::res://scenes/parallax.tscn<>uid://ck3k5gjpo7q8y::::res://scripts/game_manager.gd<>uid://x56isvi757va::::res://assets/sprites/playersprite.png<>uid://bl4ynvq6x78dt::::res://scenes/InventoryUI.tscn<>uid://dc4ehm8gh1u32::::res://scenes/npc.tscn<>uid://d0lpugivpqeh0::::res://scenes/Pickup.tscn<>uid://r710d4r07jsr::::res://assets/sounds/chill_exploration.wav<>uid://bomlt8u5ad0g::::res://assets/sprites/heart.png<>uid://bsnofo8l5c2ia::::res://assets/sprites/player_hurt.gdshader<>uid://dg5v0g3f35g0v::::res://scenes/enemy.tscn<>uid://b8raiaydfmwcn::::res://assets/sprites/House_street_stuff.png
+game.tscn::PackedScene::3837840381593096860::1759705597::0::1::::<><><>0<>0<><>::uid://cdmoig6nx7y73::::res://scripts/player.gd<>uid://1ng05d53hre8::::res://scenes/parallax.tscn<>uid://ck3k5gjpo7q8y::::res://scripts/game_manager.gd<>uid://x56isvi757va::::res://assets/sprites/playersprite.png<>uid://bl4ynvq6x78dt::::res://scenes/InventoryUI.tscn<>uid://dc4ehm8gh1u32::::res://scenes/npc.tscn<>uid://d0lpugivpqeh0::::res://scenes/Pickup.tscn<>uid://r710d4r07jsr::::res://assets/sounds/chill_exploration.wav<>uid://bomlt8u5ad0g::::res://assets/sprites/heart.png<>uid://bsnofo8l5c2ia::::res://assets/sprites/player_hurt.gdshader<>uid://dg5v0g3f35g0v::::res://scenes/enemy.tscn<>uid://b8raiaydfmwcn::::res://assets/sprites/House_street_stuff.png<>uid://devdmj4mijdvc::::res://assets/sprites/Park_sprites.png
 hurtbox.tscn::PackedScene::3337704800127802388::1759661533::0::1::::<><><>0<>0<><>::uid://bffcgw6xepeo6::::res://scripts/hurtbox.gd
 InventorySlots.tscn::PackedScene::6953136405632137001::1759661533::0::1::::<><><>0<>0<><>::
 InventoryUI.tscn::PackedScene::3219846470874103117::1759603150::0::1::::<><><>0<>0<><>::uid://c6cfe1xpafw1v::::res://scenes/InventorySlots.tscn<>uid://guivx1ok8k7y::::res://scripts/inventory_ui.gd
