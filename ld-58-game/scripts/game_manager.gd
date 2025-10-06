@@ -57,7 +57,7 @@ func decrease_health():
 		
 func _on_timer_timeout():
 		Engine.time_scale = 1.0
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 
 func _on_hitbox_punch_area_entered(area):
